@@ -1,0 +1,134 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{int info;
+struct node* next;
+
+};
+struct node* head=0;
+void createlist()
+{if(head==0)
+    {int n;
+printf("Enter the no:of node\t");
+scanf("%d",&n);
+    if(n!=0)
+    {
+        int data;
+        struct node* newnode;
+        struct node* temp;
+        newnode=malloc(sizeof(struct node));
+        head=newnode;
+        temp=head;
+        printf("Enter the data to be inserted\t");
+        scanf("%d",&data);
+        head->info=data;
+        for(int i=2;i<=n;i++)
+            {
+             newnode=malloc(sizeof(struct node));
+        head=newnode;
+        temp=head;
+        printf("Enter the data to be inserted\t");
+        scanf("%d",&data);
+        head->info=data;
+        temp=temp->next;
+        break;
+            }
+        
+    }
+    printf("List is created\n");
+
+    
+}
+
+}
+void traverse()
+{
+    struct node* temp;
+    if(head==0)
+    {
+        printf("List is empty\n");
+    }
+    else
+    {
+        temp=head;
+        while(temp!=0)
+        {
+            printf("Data%d",temp->info);
+            temp=temp->next;
+        }
+        
+    }
+    
+}
+void insertbeg()
+{
+    int data;
+    struct node* temp;
+    temp=malloc(sizeof(struct node));
+    printf("Enter the no to be inserted\n");
+    scanf("%d",&data);
+    temp->info=data;
+    temp->next=head;
+    head=temp;
+    
+}
+void insertend()
+{
+    int data;
+    struct node* temp,start;
+    temp=malloc(sizeof(struct node));
+    printf("Enter the no to be inserted\n");
+    scanf("%d",&data);
+    temp->next=0;
+    temp->info=data;
+    start=head;
+    while(start->next!=0)
+    {
+        start=start->next;
+    
+    }
+    start->next=temp;
+    
+}
+
+void main()
+{
+    int ch;
+    while(1)
+    {
+        createlist();
+        printf("1. To see list");
+        printf("2. Insertion at front");
+        printf("1. Insertion at end");
+        printf("Enter the choice");
+        scanf("%d",&ch);
+        switc(ch)
+        {
+            case 1:traverse();
+                    break;
+            case 2:insertbeg();
+                    break;
+            case 3:insertend();
+                    break;
+            default:printf("Wrong entry")  ;      
+        }
+    }
+
+    
+}
